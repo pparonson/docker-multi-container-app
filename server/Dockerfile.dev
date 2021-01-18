@@ -1,0 +1,15 @@
+# Use an existing docker image as base
+FROM node:14.14.0-alpine
+
+WORKDIR /usr/app
+
+# Download and install dependencies
+COPY ./package.json ./
+RUN npm install
+
+COPY ./ ./
+
+# Starting image container instructions
+CMD ["npm", "run", "dev"]
+
+
